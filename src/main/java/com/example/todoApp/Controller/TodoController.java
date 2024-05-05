@@ -14,10 +14,10 @@ import java.util.List;
 public class TodoController {
     private final ToDoService toDoService;
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String root(){
         return "redirect:/list";
-    }
+    }*/
 
     @GetMapping("/list")
     public String list(Model model){
