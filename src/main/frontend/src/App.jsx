@@ -92,11 +92,17 @@ export default App;
  import axios from 'axios';
 
  function App() {
-    const [hello, setHello] = useState('')
+    //const [todos, setTodos] = useState();
+    const [hello, setHello] = useState();
 
      useEffect(() => {
          axios.get('/api/hello')
-         .then(response => setHello(response.data))
+         .then(response => {
+            console.log(response);
+            //setTodos(response.data);
+            setHello(response.data.str);
+            console.log(hello);
+         })
          .catch(error => console.log(error))
      }, []);
 

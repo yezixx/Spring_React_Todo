@@ -5,7 +5,7 @@ spring:
     #    각자 PC에 만들어놓은 Database이름을 써야 합니다.
     url: ${SPRING_DATASOURCE_URL}
     #    mysql에 생성한 사용자 계정 정보를 써야 합니다.
-    username: todo
+    username: user_todo
     password: ${SPRING_DATASOURCE_PASSWORD}
   thymeleaf:
     cache: false

@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Table(name = "todo")
 @Entity(name="ToDoEntity")
@@ -18,12 +17,36 @@ public class ToDoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     private String todo;
 
-    private boolean completed;
+    private boolean isDone;
 
-    public Boolean getComplete(){
-        return completed;
+    public ToDoEntity(Long id, String todo) {
+        this.id=id;
+        this.todo= todo;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTodo() {
+        return todo;
+    }
+
+    public void setTodo(String todo) {
+        this.todo = todo;
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
     }
 }

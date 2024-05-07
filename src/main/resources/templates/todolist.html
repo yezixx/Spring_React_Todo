@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="todo:${toDoList}" th:if="${todo.completed} == false">
+        <tr th:each="todo:${toDoList}" th:if="${todo.isDone} == false">
             <td></td>
             <td th:text="${todo.todo}" style="width:50%"></td>
             <td>
@@ -43,7 +43,7 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="todo:${toDoList}" th:if="${todo.completed} == true">
+        <tr th:each="todo:${toDoList}" th:if="${todo.isDone} == true">
             <td></td>
             <td th:text="${todo.todo}" style="width:50%; text-decoration: line-through;"></td>
             <td>

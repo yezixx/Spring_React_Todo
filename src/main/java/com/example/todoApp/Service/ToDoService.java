@@ -20,7 +20,7 @@ public class ToDoService {
     public void create(String todoContent){
         ToDoEntity toDoEntity = new ToDoEntity();
         toDoEntity.setTodo(todoContent);
-        toDoEntity.setCompleted(false);
+        toDoEntity.setDone(false);
         this.toDoRepository.save(toDoEntity);
     }
 
@@ -35,7 +35,7 @@ public class ToDoService {
     public void update(Long id){
         ToDoEntity toDoEntity = toDoRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("해당 Todo가 없습니다. id=" + id));
-        toDoEntity.setCompleted(!toDoEntity.getComplete());
+        toDoEntity.setDone(!toDoEntity.isDone());
         toDoRepository.save(toDoEntity);
     }
 }
