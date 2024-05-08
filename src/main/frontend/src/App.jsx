@@ -88,27 +88,30 @@ function App() {
 
 export default App;
  */
- import React, {useEffect, useState} from 'react';
+ import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
 
  function App() {
     //const [todos, setTodos] = useState();
-    const [hello, setHello] = useState();
+    const [hello, setHello] = useState("");
 
      useEffect(() => {
          axios.get('/api/hello')
          .then(response => {
+            const newHello = {
+                str: response.data.str,
+                str2: response.data.str2
+            }
             console.log(response);
             //setTodos(response.data);
-            setHello(response.data.str);
-            console.log(hello);
+            setHello(newHello);
          })
          .catch(error => console.log(error))
      }, []);
 
      return (
          <div>
-             백엔드에서 가져온 데이터입니다 : {hello}
+             백엔드에서 가져온 데이터입니다 : {hello.str}, {hello.str2}
          </div>
      );
  }

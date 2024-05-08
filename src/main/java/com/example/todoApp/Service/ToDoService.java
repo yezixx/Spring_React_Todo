@@ -19,7 +19,7 @@ public class ToDoService {
 
     public void create(String todoContent){
         ToDoEntity toDoEntity = new ToDoEntity();
-        toDoEntity.setTodo(todoContent);
+        toDoEntity.setContent(todoContent);
         toDoEntity.setDone(false);
         this.toDoRepository.save(toDoEntity);
     }

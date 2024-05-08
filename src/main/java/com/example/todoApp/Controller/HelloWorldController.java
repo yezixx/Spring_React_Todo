@@ -19,15 +19,17 @@ public class HelloWorldController {
 
     @GetMapping("/api/hello")
     public Hello test() {
-        Hello hello = new Hello("Hello Spring+React");
+        Hello hello = new Hello("Hello Spring", "Hello React");
         return hello;
     }
 
     public class Hello{
         private String str;
+        private String str2;
 
-        public Hello(String str){
-            this.str=str;
+        public Hello(String str, String str2){
+            this.str = str;
+            this.str2=str2;
         }
 
         public String getStr() {
@@ -36,6 +38,14 @@ public class HelloWorldController {
 
         public void setStr(String str) {
             this.str = str;
+        }
+
+        public String getStr2() {
+            return str2;
+        }
+
+        public void setStr2(String str2) {
+            this.str2 = str2;
         }
     }
 }
