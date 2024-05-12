@@ -97,9 +97,12 @@ export default App;
  function App() {
     const [todos, setTodos] = useState([]);
 
-    const onCreate = (content) => {
+    const idRef = useRef(todos.length);
+    console.log(idRef.current);
+
+      const onCreate = (content) => {
         const newTodo = {
-          id: 0,
+          id: idRef.current++,
           isDone: false,
           content: content,
           date: new Date().getTime(),
