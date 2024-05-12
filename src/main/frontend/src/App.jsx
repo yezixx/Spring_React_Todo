@@ -90,6 +90,7 @@ export default App;
  */
  import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
+ import Header from "./components/Header";
  import TodoItem from "./components/TodoItem";
 
  function App() {
@@ -106,7 +107,7 @@ export default App;
 
      return (
              <div>
-                 <h1>Todo</h1>
+             <Header/>
                  {todos.map((todo)=>{
                      return (
                          <TodoItem
