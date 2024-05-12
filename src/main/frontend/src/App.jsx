@@ -90,32 +90,33 @@ export default App;
  */
  import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
- import Test from "./components/Test";
+ import TodoItem from "./components/TodoItem";
 
  function App() {
-    //const [todos, setTodos] = useState();
-    const [hello, setHello] = useState("");
+    const [todos, setTodos] = useState([]);
 
-     useEffect(() => {
-         axios.get('/api/hello')
-         .then(response => {
-            const newHello = {
-                str: response.data.str,
-                str2: response.data.str2
-            }
-            //console.log(response);
-            //setTodos(response.data);
-            setHello(newHello);
-         })
-         .catch(error => console.log(error))
-     }, []);
+        useEffect(() => {
+            axios.get('/list')
+                .then(response => {
+                    //console.log(response.data);
+                    setTodos(response.data);
+                })
+                .catch(error => console.log(error))
+        }, []);
 
      return (
-         <div>
-             <div>백엔드에서 가져온 데이터입니다 : {hello.str}, {hello.str2}</div>
-             <Test/>
-         </div>
-     );
+             <div>
+                 <h1>Todo</h1>
+                 {todos.map((todo)=>{
+                     return (
+                         <TodoItem
+                          key={todo.id}
+                          {...todo}
+                          />
+                     );
+                     })}
+             </div>
+         );
  }
 
  export default App;
