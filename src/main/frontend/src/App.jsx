@@ -97,8 +97,7 @@ export default App;
  function App() {
     const [todos, setTodos] = useState([]);
 
-    const idRef = useRef(todos.length);
-    console.log(idRef.current);
+    const idRef = useRef(3);
 
       const onCreate = (content) => {
         const newTodo = {
@@ -108,6 +107,7 @@ export default App;
           date: new Date().getTime(),
         };
         setTodos([newTodo, ...todos]);
+        axios.post('/list', newTodo);
       };
 
         useEffect(() => {
