@@ -91,10 +91,21 @@ export default App;
  import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
  import Header from "./components/Header";
+ import Editor from "./components/Editor";
  import TodoItem from "./components/TodoItem";
 
  function App() {
     const [todos, setTodos] = useState([]);
+
+    const onCreate = (content) => {
+        const newTodo = {
+          id: 0,
+          isDone: false,
+          content: content,
+          date: new Date().getTime(),
+        };
+        setTodos([newTodo, ...todos]);
+      };
 
         useEffect(() => {
             axios.get('/list')
@@ -108,6 +119,7 @@ export default App;
      return (
              <div>
              <Header/>
+             <Editor onCreate={onCreate} />
                  {todos.map((todo)=>{
                      return (
                          <TodoItem
