@@ -110,7 +110,6 @@ export default App;
         useEffect(() => {
             axios.get('/list')
                 .then(response => {
-                    //console.log(response.data);
                     setTodos(response.data);
                 })
                 .catch(error => console.log(error))
