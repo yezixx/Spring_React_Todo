@@ -120,12 +120,12 @@ export default App;
         }, []);
 
      return (
-             <div className="App">
-             <Header/>
-             <Editor onCreate={onCreate} />
-             <List todos={todos} />
-             </div>
-         );
+        <div className="App">
+        <Header/>
+        <Editor onCreate={onCreate} />
+        <List todos={todos} />
+        </div>
+     );
  }
 
  export default App;
