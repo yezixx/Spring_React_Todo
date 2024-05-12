@@ -17,11 +17,8 @@ public class ToDoService {
         return this.toDoRepository.findAll();
     }
 
-    public void create(String todoContent){
-        ToDoEntity toDoEntity = new ToDoEntity();
-        toDoEntity.setContent(todoContent);
-        toDoEntity.setDone(false);
-        this.toDoRepository.save(toDoEntity);
+    public void create(ToDoEntity todoContent){
+        this.toDoRepository.save(todoContent);
     }
 
     @Transactional
