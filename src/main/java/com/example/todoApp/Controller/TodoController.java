@@ -19,19 +19,19 @@ public class TodoController {
         return "redirect:/list";
     }*/
 
-    @GetMapping("/list")
+    /*@GetMapping("/list")
     public String list(Model model){
         List<ToDoEntity> toDoList=this.toDoService.getList();
         model.addAttribute("toDoList", toDoList);
         return "todolist";
-    }
+    }*/
 
-    @PostMapping("/list")
+    /*@PostMapping("/list")
     public String createToDo(@RequestParam("todoContent") String todoContent){
         // database에 저장
         this.toDoService.create(todoContent);
         return "redirect:/list";
-    }
+    }*/
 
     @PostMapping("/list/delete/{id}")
     public String deleteToDO(@PathVariable("id") Long id){

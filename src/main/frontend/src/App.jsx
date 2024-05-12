@@ -90,6 +90,7 @@ export default App;
  */
  import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
+ import Test from "./components/Test";
 
  function App() {
     //const [todos, setTodos] = useState();
@@ -102,7 +103,7 @@ export default App;
                 str: response.data.str,
                 str2: response.data.str2
             }
-            console.log(response);
+            //console.log(response);
             //setTodos(response.data);
             setHello(newHello);
          })
@@ -111,7 +112,8 @@ export default App;
 
      return (
          <div>
-             백엔드에서 가져온 데이터입니다 : {hello.str}, {hello.str2}
+             <div>백엔드에서 가져온 데이터입니다 : {hello.str}, {hello.str2}</div>
+             <Test/>
          </div>
      );
  }
