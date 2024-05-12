@@ -3,11 +3,7 @@ package com.example.todoApp.Controller;
 import com.example.todoApp.Service.ToDoService;
 import com.example.todoApp.domain.ToDoEntity;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +24,10 @@ public class HelloWorldController {
     public List<ToDoEntity> list(){
         List<ToDoEntity> toDoList=this.toDoService.getList();
         return toDoList;
+    }
+
+    @PostMapping("/list")
+    public void createToDo(@RequestBody ToDoEntity todoContent){
+        this.toDoService.create(todoContent);
     }
 }
