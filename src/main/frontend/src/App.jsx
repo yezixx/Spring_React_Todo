@@ -88,11 +88,12 @@ function App() {
 
 export default App;
  */
+ import "./App.css";
  import React, {useEffect, useState, useRef} from 'react';
  import axios from 'axios';
  import Header from "./components/Header";
  import Editor from "./components/Editor";
- import TodoItem from "./components/TodoItem";
+ import List from "./components/List";
 
  function App() {
     const [todos, setTodos] = useState([]);
@@ -119,17 +120,10 @@ export default App;
         }, []);
 
      return (
-             <div>
+             <div className="App">
              <Header/>
              <Editor onCreate={onCreate} />
-                 {todos.map((todo)=>{
-                     return (
-                         <TodoItem
-                          key={todo.id}
-                          {...todo}
-                          />
-                     );
-                     })}
+             <List todos={todos} />
              </div>
          );
  }
