@@ -108,7 +108,7 @@ export default App;
           date: new Date().getTime(),
         };
         setTodos([newTodo, ...todos]);
-        axios.post('/list', newTodo);
+        axios.post('/list/create', newTodo);
       };
 
         useEffect(() => {

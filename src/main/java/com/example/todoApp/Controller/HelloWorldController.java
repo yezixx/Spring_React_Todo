@@ -26,7 +26,7 @@ public class HelloWorldController {
         return toDoList;
     }
 
-    @PostMapping("/list")
+    @PostMapping("/list/create")
     public void createToDo(@RequestBody ToDoEntity todoContent){
         this.toDoService.create(todoContent);
     }
