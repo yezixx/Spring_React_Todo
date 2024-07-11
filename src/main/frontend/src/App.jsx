@@ -111,6 +111,25 @@ export default App;
         axios.post('/list/create', newTodo);
       };
 
+      const onUpdate = (targetId) => {
+          setTodos(
+            todos.map((todo) =>
+              todo.id === targetId
+                ? {
+                    ...todo,
+                    isDone: !todo.isDone,
+                  }
+                : todo
+            )
+          );
+          axios.post(`/list/update/${targetId}`, targetId);
+        };
+
+        const onDelete = (targetId) => {
+            setTodos(todos.filter((todo) => todo.id !== targetId));
+            axios.post(`/list/delete/${targetId}`, targetId);
+          };
+
         useEffect(() => {
             axios.get('/list')
                 .then(response => {
@@ -123,7 +142,7 @@ export default App;
         <div className="App">
         <Header/>
         <Editor onCreate={onCreate} />
-        <List todos={todos} />
+        <List todos={todos} onUpdate={onUpdate} onDelete={onDelete}/>
         </div>
      );
  }

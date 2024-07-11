@@ -30,4 +30,14 @@ public class HelloWorldController {
     public void createToDo(@RequestBody ToDoEntity todoContent){
         this.toDoService.create(todoContent);
     }
+
+    @PostMapping("/list/update/{id}")
+    public void updateToDo(@PathVariable("id") Long targetId){
+        this.toDoService.update(targetId);
+    }
+
+    @PostMapping("/list/delete/{id}")
+    public void deleteToDO(@PathVariable("id") Long id){
+        this.toDoService.delete(id);
+    }
 }
